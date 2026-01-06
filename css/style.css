@@ -270,9 +270,10 @@ span {
 
 .row img {
     height: 200px;
-    width: 60%;
+    width: 100%;
     border-radius: 0.5rem;
     margin-bottom: 10px;
+
 }
 
 .row {
@@ -284,6 +285,10 @@ span {
 
 .main-row {
     margin-bottom: 1rem;
+}
+
+.main-row h3 {
+    color: #fff;
 }
 
 .row h3 {
@@ -427,35 +432,43 @@ form textarea {
     header {
         padding: 16px 3%;
     }
+
     header.sticky {
         padding: 6px 3%;
     }
+
     header a {
         padding: 5px 15px;
     }
+
     section {
         padding: 130px 3% 60px;
     }
 }
 
 @media (max-width: 970px) {
-     :root {
+    :root {
         --h1-font: 4.2rem;
         --h2-font: 2.9rem;
         --p-font: 1rem;
     }
+
     section {
         padding: 70px 3% 60px;
     }
+
     .home {
         height: 85vh;
     }
+
     .about {
         grid-template-columns: 1fr;
     }
+
     .about-img {
         text-align: center;
     }
+
     .contact {
         grid-template-columns: 1fr;
     }
@@ -466,10 +479,12 @@ form textarea {
         height: 4rem;
         width: 100%;
     }
+
     .toggle {
         display: block;
         transition: all 5s ease;
     }
+
     .navbar {
         position: absolute;
         top: -600px;
@@ -481,30 +496,36 @@ form textarea {
         text-align: left;
         transition: all .90s ease;
     }
+
     .navbar a {
         display: block;
         padding: 1rem;
         margin: 1rem;
     }
+
     .navbar ul {
         display: flex;
         flex-direction: column;
         text-align: left;
     }
+
     header img {
         width: 35%;
         height: auto;
         line-height: auto;
         top: 0.5rem;
     }
+
     .logo {
         height: 1.5rem;
     }
+
     .navbar.active {
         top: 100%;
         transition: all .90s ease;
     }
-     :root {
+
+    :root {
         --h1-font: 3.2rem;
         --h2-font: 2.2rem;
     }
