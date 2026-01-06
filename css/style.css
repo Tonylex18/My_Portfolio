@@ -1,7 +1,12 @@
+:root {
+    --font-base: 'Inter', sans-serif;
+    --font-heading: 'Poppins', sans-serif;
+}
+
 * {
     margin: 0;
     padding: 0;
-    font-family: 'Dancing Script', cursive;
+    font-family: var(--font-base);
     box-sizing: border-box;
     scroll-behavior: smooth;
 }
@@ -135,6 +140,12 @@ span {
     margin-bottom: 3rem;
 }
 
+.home-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
 .btn {
     display: inline-block;
     padding: 14px 40px;
@@ -151,6 +162,16 @@ span {
     transform: scale(1.01) translateY(-5px);
     background: transparent;
     border: 1px solid var(--main-color);
+}
+
+.btn.outline {
+    background: transparent;
+    color: var(--text-color);
+}
+
+.btn.outline:hover {
+    background: var(--main-color);
+    color: var(--text-color);
 }
 
 .about {
@@ -212,18 +233,71 @@ span {
     font-weight: 600;
 }
 
-.services-content {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, auto));
-    text-align: center;
-    align-items: center;
-    gap: 2rem;
+.services-slider {
+    position: relative;
     margin-top: 5rem;
+    --service-gap: 1.5rem;
+    --services-visible: 3;
 }
 
-.services-content img {
-    width: 80%;
-    height: 40%;
+.services-window {
+    overflow: hidden;
+    width: 100%;
+}
+
+.services-track {
+    display: flex;
+    gap: var(--service-gap);
+    align-items: stretch;
+    will-change: transform;
+}
+
+.service-slide {
+    flex: 0 0 calc((100% - (var(--service-gap) * (var(--services-visible) - 1))) / var(--services-visible));
+    display: flex;
+    justify-content: center;
+    flex-shrink: 0;
+    padding: 0.5rem 0;
+}
+
+.service-slide img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+.service-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: #fff;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    z-index: 2;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.service-nav:hover {
+    background: var(--main-color);
+    transform: translateY(-50%) scale(1.05);
+}
+
+.service-nav.prev {
+    left: 10px;
+}
+
+.service-nav.next {
+    right: 10px;
+}
+
+.service-nav {
+    display: none;
 }
 
 .box {
@@ -233,6 +307,13 @@ span {
     border-radius: 0.5rem;
     transition: all .40s ease;
     cursor: pointer;
+    width: 100%;
+    max-width: none;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
 }
 
 .box h3 {
@@ -258,6 +339,18 @@ span {
 
 .box:hover h3 {
     color: var(--main-color);
+}
+
+@media (max-width: 1023px) {
+    .services-slider {
+        --services-visible: 2;
+    }
+}
+
+@media (max-width: 768px) {
+    .services-slider {
+        --services-visible: 1;
+    }
 }
 
 .portfolio-content {
@@ -386,22 +479,22 @@ span {
 }
 
 .contact-form form input,
-form textarea {
+.contact-form form textarea {
     border: none;
     outline: none;
     width: 100%;
-    padding: 16px;
+    padding: 14px 16px;
     background: #12141c;
     color: var(--text-color);
     font-size: 1rem;
     font-weight: 600;
-    margin-bottom: 0.5rem;
+    margin-top: 6px;
     border-radius: 0.5rem;
 }
 
 .contact-form textarea {
-    resize: none;
-    height: 220px;
+    resize: vertical;
+    min-height: 180px;
 }
 
 .contact-form form .send {
@@ -413,10 +506,50 @@ form textarea {
     width: 190px;
     cursor: pointer;
     transition: all .40s ease;
+    border: 2px solid var(--main-color);
 }
 
 .contact-form form .send:hover {
     transform: scale(1.01) translateY(-5px);
+}
+
+.contact-form form label {
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+.contact-form .field {
+    margin-bottom: 1rem;
+}
+
+.contact-form .field.hp {
+    display: none;
+}
+
+.form-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.form-status {
+    min-height: 1.2rem;
+    color: var(--text-color);
+    font-size: 0.95rem;
+}
+
+.send[disabled] {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.form-status.error {
+    color: #ff6b6b;
+}
+
+.form-status.success {
+    color: #6ef59a;
 }
 
 .toggle {

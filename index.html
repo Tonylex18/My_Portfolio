@@ -6,17 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>My Portfolio | Personal Website</title>
 
-    <!------Custom CSS styling!--------->
+    <!------ Custom CSS --------->
     <link rel="stylesheet" type="text/css" href="css/style.css">
 
-    <!------Other Custom Links!--------->
+    <!------ Other Custom Links --------->
     <link rel="stylesheet" href="css/css/all.css">
 
+    <!-- Google Fonts: Inter + Poppins -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;402;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
+
 
 <body>
 
@@ -48,7 +50,10 @@
             <h4>Hello</h4>
             <h1>I'm Anthony <br><span>Alex</span></h1>
             <h3>Front-End Developer</h3>
-            <a href="#contact" class="btn">Hire Me</a>
+            <div class="home-actions">
+                <a href="#contact" class="btn">Hire Me</a>
+                <a href="Imgs/AGADA%20ANTHONY%20ALEX%20Resume.pdf" class="btn outline" download="Anthony-Alex-Resume.pdf">Download Resume</a>
+            </div>
         </div>
     </section>
 
@@ -56,7 +61,7 @@
 
     <section class="about" id="about">
         <div class="about-img">
-            <img src="Imgs/about-me.jpg">
+            <img src="Imgs/personal.png">
         </div>
 
         <div class="about-text">
@@ -95,37 +100,56 @@
             <h4>Better Design, Better Experience</h4>
         </div>
 
-        <div class="services-content">
-            <div class="box">
-                <img src="Imgs/iphone.jpg">
-                <h3>Landing Page Design</h3>
-                <p>
-                    I build high-converting landing pages tailored for promotions, product launches, and marketing
-                    campaigns. These pages are designed to be visually engaging, fast-loading, and optimized to guide
-                    users toward a specific action.
-                </p>
+        <div class="services-slider">
+            <button class="service-nav prev" aria-label="Previous service">
+                <i class="fa fa-arrow-left"></i>
+            </button>
+
+            <div class="services-window">
+                <div class="services-track">
+                    <div class="service-slide">
+                        <div class="box">
+                            <img src="Imgs/iphone.jpg">
+                            <h3>Landing Page Design</h3>
+                            <p>
+                                I build high-converting landing pages tailored for promotions, product launches, and
+                                marketing campaigns. These pages are designed to be visually engaging, fast-loading, and
+                                optimized to guide users toward a specific action.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="service-slide">
+                        <div class="box">
+                            <img src="Imgs/laptop.png">
+                            <h3>Business Website Design</h3>
+                            <p>
+                                I design and develop professional business websites that clearly communicate your brand,
+                                services, and value proposition. Each website is built to be responsive, fast, and easy
+                                to navigate, helping you establish a strong online presence and build trust with your
+                                audience.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="service-slide">
+                        <div class="box">
+                            <img src="Imgs/dashboard.png">
+                            <h3>E-Commerce Website Design</h3>
+                            <p>
+                                I create clean and functional e-commerce websites that make it easy for customers to
+                                browse products, add items to cart, and complete purchases smoothly. The focus is on
+                                usability, performance, and conversion-friendly layouts that support business growth.
+
+                            </p>
+                        </div>
+                    </div>
+                </div>
             </div>
 
-            <div class="box">
-                <img src="Imgs/laptop.png">
-                <h3>Business Website Design</h3>
-                <p>
-                    I design and develop professional business websites that clearly communicate your brand, services,
-                    and value proposition. Each website is built to be responsive, fast, and easy to navigate, helping
-                    you establish a strong online presence and build trust with your audience.
-                </p>
-            </div>
-
-            <div class="box">
-                <img src="Imgs/dashboard.png">
-                <h3>E-Commerce Website Design</h3>
-                <p>
-                    I create clean and functional e-commerce websites that make it easy for customers to browse
-                    products, add items to cart, and complete purchases smoothly. The focus is on usability,
-                    performance, and conversion-friendly layouts that support business growth.
-
-                </p>
-            </div>
+            <button class="service-nav next" aria-label="Next service">
+                <i class="fa fa-arrow-right"></i>
+            </button>
         </div>
     </section>
 
@@ -237,7 +261,11 @@
         <div class="contact-text">
             <h2>Contact Me</h2>
             <h4>Let's Work Together</h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis</p>
+            <p>
+                I offer professional website design services including business websites, e-commerce platforms, landing
+                pages, and UI implementation from Figma designs. My focus is on building responsive, high-performance
+                websites that look good, work smoothly, and deliver real results.
+            </p>
 
             <div class="contact-list">
                 <li><a href="">Lambata kwali Abuja</a></li>
@@ -256,17 +284,43 @@
         </div>
 
         <div class="contact-form">
-            <form action="">
-                <input type="" placeholder="Enter Your Name" required>
-                <input type="email" placeholder="Entee Your Email" required>
-                <input type="" placeholder="Enter Your Subject">
-                <textarea name="" id="" cols="40" rows="10"></textarea>
-                <input type="submit" value="submit" class="send">
+            <form id="contact-form" novalidate>
+                <div class="field">
+                    <label for="name">Name</label>
+                    <input id="name" name="name" type="text" placeholder="Enter your name" autocomplete="name" required>
+                </div>
+
+                <div class="field">
+                    <label for="email">Email</label>
+                    <input id="email" name="email" type="email" placeholder="Enter your email" autocomplete="email" required>
+                </div>
+
+                <div class="field">
+                    <label for="subject">Subject</label>
+                    <input id="subject" name="subject" type="text" placeholder="What do you want to talk about?" required>
+                </div>
+
+                <div class="field">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="6" placeholder="Write your message" required></textarea>
+                </div>
+
+                <!-- Honeypot to deter bots -->
+                <div class="field hp">
+                    <label for="website">Website (leave empty)</label>
+                    <input id="website" name="website" type="text" tabindex="-1" autocomplete="off">
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="send" id="contact-submit">Send Message</button>
+                    <div class="form-status" role="status" aria-live="polite"></div>
+                </div>
             </form>
         </div>
     </section>
 
     <!------Custom Javascript!--------->
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
     <script src="js/script.js"></script>
 </body>
 
